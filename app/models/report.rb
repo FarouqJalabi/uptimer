@@ -1,7 +1,5 @@
 class Report < ApplicationRecord
   belongs_to :monitor, polymorphic: true
-
-  validates_presence_of :up
   store_accessor :info, :status_code # Should have been called response_body
 
   scope :up, -> { where(up: true) }
