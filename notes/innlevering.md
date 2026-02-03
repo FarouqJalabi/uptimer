@@ -33,6 +33,11 @@ Jobben ✅ 14:01
 solid_queue:install
 Job should really buulk insert reports
 
+Deploy ⁉️ ✅ 16:07
+Måtte queue databasen selv
+
+La post api funke for inaktive ⁉️ 16:07
+
 Website start dashboard
 
 Dag 3 08:00 - 16:00
