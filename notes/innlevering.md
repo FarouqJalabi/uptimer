@@ -29,7 +29,7 @@ nested form for monitor ⁉️
 What does the website model do? It does nothing!
 Would been easier to switch , should have maybe done it?
 
-Jobben
+Jobben ✅ 14:01
 solid_queue:install
 Job should really buulk insert reports
 
