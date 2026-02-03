@@ -8,8 +8,4 @@ class Monitor::Base < ApplicationRecord
   def build_report
     raise NotImplementedError
   end
-
-  def should_perform?
-    raise NotImplementedError
-  end
 end
