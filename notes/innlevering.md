@@ -24,10 +24,13 @@ https://github.com/lostisland/faraday
 Gir meg også #success?
 report info er kanskje ubruklig?
 
-Website CRUD 
-
+Website CRUD -> Monitors CRUD ✅ 14:01
 nested form for monitor ⁉️
+What does the website model do? It does nothing!
+Would been easier to switch , should have maybe done it?
+
 Jobben
+solid_queue:install
 Job should really buulk insert reports
 
 Website start dashboard

@@ -9,8 +9,8 @@ class Monitor::Fetch < Monitor::Base
     return unless should_report?
     response = Faraday.get(url)
     # NOTE 301 isn't successfull
-    reports.create up: response.success?, info: { status: response.status } # Maybe include more info if fail?
-  rescue Faraday::Error => e
+    reports.create! up: response.success?, info: { status: response.status } # Maybe include more info if fail?
+  rescue Faraday::Error, Faraday::ConnectionFailed => e
     reports.create!(up: false, info: { error: e })
   end
 

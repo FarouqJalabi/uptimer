@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :monitor do
+    resources :heartbeats
+    resources :fetches
+  end
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

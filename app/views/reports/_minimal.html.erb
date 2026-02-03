@@ -1,0 +1,8 @@
+<%# locals: (reports:) %>
+
+<section class="flex gap-1" >
+  <% last_90_days(reports).each do |up| %>
+    <div class="w-1.5 h-8 <%= report_color(up) %>"></div>
+    <!-- <div class="w-2 h-8 <% up ? "bg-green-400" : "bg-red-200" %>"></div> -->
+  <% end %>
+</section>
