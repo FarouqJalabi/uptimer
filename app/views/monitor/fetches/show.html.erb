@@ -2,10 +2,6 @@
 
 <div class="flex flex-col gap-4">
   <div class="md:w-2/3 w-full">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
     <h1 class="font-bold text-4xl">Showing fetch</h1>
 
     <%= render @monitor_fetch %>
@@ -16,6 +12,8 @@
   </div>
 
   <div id="last_report">
-    <%= render "reports/report", report: @monitor_fetch.reports.last %>
+    <% if @monitor_fetch.reports.any? %>
+      <%= render "reports/report", report: @monitor_fetch.reports.last %>
+    <% end %>
   </div>
 </div>

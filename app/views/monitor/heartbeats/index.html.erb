@@ -1,23 +1,12 @@
 <% content_for :title, "Heartbeats" %>
 
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Heartbeats</h1>
-    <div>
-      <%= link_to "See heartbeats", monitor_fetches_path, class: "link" %>
-      <%= link_to "New heartbeat", new_monitor_heartbeat_path, class: "btn btn-primary" %>
-    </div>
+    <%= link_to "New heartbeat", new_monitor_heartbeat_path, class: "btn btn-primary" %>
   </div>
   <p>
-    hearbeat, we need to receive update from the site.
-    <br/>
-    eg:
-    <br/>
-    curl -X POST https://uptimer.rubynor.com/api/monitor_heartbeat  -H "Content-Type: application/json"      -d "{\"id\": 1}"
+    We wait for website to send us post request to /api/monitor_heartbeat, if "time_considered_active" is passed we update false.
   </p>
 
 

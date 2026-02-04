@@ -24,11 +24,36 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="toast toast-top toast-end">
+      <% if alert.present? %>
+        <div class="alert alert-error">
+          <span><%= alert %></span>
+        </div>
+      <% end %>
+      <% if notice.present? %>
+        <div class="alert alert-info">
+          <span><%= notice %></span>
+        </div>
+      <% end %>
+    </div>
 
 
-    <main class="container mx-auto mt-28 px-5 flex">
+    <div class="flex w-[50%] m-auto p-5 mt-5 rounded-xl bg-primary text-primary-content">
+      <div class="flex-1">
+        <h2 class="text-xl font-bold">Uptimer</h2>
+      </div>
+
+      <ul class="flex gap-4">
+        <li>
+          <%= link_to "See fetches", monitor_fetches_path, class: "link mt-28" %>
+        </li>
+        <li>
+          <%= link_to "See heartbeats", monitor_heartbeats_path, class: "link mt-28" %>
+        </li>
+      </ul>
+    </div>
+
+    <main class="container mx-auto mt-7 px-5 flex">
       <%= yield %>
     </main>
   </body>

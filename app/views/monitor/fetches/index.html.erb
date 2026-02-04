@@ -1,19 +1,12 @@
 <% content_for :title, "Fetches" %>
 
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Fetches</h1>
-    <div>
-      <%= link_to "See heartbeats", monitor_heartbeats_path, class: "link" %>
-      <%= link_to "New fetch", new_monitor_fetch_path, class: "btn btn-primary" %>
-    </div>
+    <%= link_to "New fetch", new_monitor_fetch_path, class: "btn btn-primary" %>
   </div>
   <p>
-    We activly send get request for website and store any errors
+    We activly send "get" request for website and store any errors
   </p>
 
   <div id="monitor_fetches" class="min-w-full divide-y divide-gray-200 space-y-5">

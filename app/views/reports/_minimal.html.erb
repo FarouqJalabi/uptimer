@@ -1,6 +1,6 @@
 <%# locals: (monitor:, reports:) %>
 
-<section class="flex gap-1" id=<%= dom_id(monitor, :minimal_history) %> >
+<section class="flex gap-1 w-[900px]" id=<%= dom_id(monitor, :minimal_history) %> >
   <% last_90_days(reports).each do |up| %>
     <%= render "reports/minimal_report", up: up %>
   <% end %>
