@@ -7,8 +7,20 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Heartbeats</h1>
-    <%= link_to "New heartbeat", new_monitor_heartbeat_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <div>
+      <%= link_to "See heartbeats", monitor_fetches_path, class: "link" %>
+      <%= link_to "New heartbeat", new_monitor_heartbeat_path, class: "btn btn-primary" %>
+    </div>
   </div>
+  <p>
+    hearbeat, we need to receive update from the site.
+    <br/>
+    eg:
+    <br/>
+    curl -X POST https://uptimer.rubynor.com/api/monitor_heartbeat  -H "Content-Type: application/json"      -d "{\"id\": 1}"
+  </p>
+
+
 
   <div id="monitor_heartbeats" class="min-w-full divide-y divide-gray-200 space-y-5">
     <% if @monitor_heartbeats.any? %>
