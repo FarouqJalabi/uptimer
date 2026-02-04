@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    resources :monitor_heartbeat, only: :create
+  end
+
   namespace :monitor do
     resources :heartbeats
     resources :fetches

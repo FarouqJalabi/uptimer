@@ -3,7 +3,7 @@ class Monitor::Base < ApplicationRecord
   self.table_name_prefix = "monitor_"
 
   belongs_to :user
-  has_many :reports, as: :monitor, dependent: :destroy
+  has_many :reports, -> { order(:created_at) }, as: :monitor, dependent: :destroy
 
   validates_presence_of :name
 
