@@ -4,7 +4,7 @@ class Monitor::FetchesController < ApplicationController
 
   # GET /monitor/fetches
   def index
-    @monitor_fetches = Monitor::Fetch.all
+    @monitor_fetches = current_user.monitor_fetches
   end
 
   # GET /monitor/fetches/1
@@ -49,7 +49,7 @@ class Monitor::FetchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_monitor_fetch
-      @monitor_fetch = Monitor::Fetch.find(params.expect(:id))
+      @monitor_fetch = current_user.monitor_fetches.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

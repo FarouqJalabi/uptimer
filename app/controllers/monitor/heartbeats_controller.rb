@@ -4,7 +4,7 @@ class Monitor::HeartbeatsController < ApplicationController
 
   # GET /monitor/heartbeats
   def index
-    @monitor_heartbeats = Monitor::Heartbeat.all
+    @monitor_heartbeats = current_user.monitor_heartbeats
   end
 
   # GET /monitor/heartbeats/1
@@ -49,7 +49,7 @@ class Monitor::HeartbeatsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_monitor_heartbeat
-      @monitor_heartbeat = Monitor::Heartbeat.find(params.expect(:id))
+      @monitor_heartbeat = current_user.monitor_heartbeats.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
