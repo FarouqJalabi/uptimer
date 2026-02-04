@@ -1,5 +1,7 @@
+<%= turbo_stream_from heartbeat %>
+
 <div id="<%= dom_id heartbeat %>" class="w-full sm:w-auto my-5 space-y-5">
 
   <%= heartbeat.name %>
-  <%= render "reports/minimal", reports: heartbeat.reports.pluck(:up) %>
+  <%= render "reports/minimal", monitor: heartbeat, reports: heartbeat.reports.pluck(:up) %>
 </div>

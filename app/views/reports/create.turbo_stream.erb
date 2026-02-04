@@ -1,0 +1,12 @@
+<% history_id = dom_id(report.monitor, :minimal_history) %>
+
+<turbo-stream action="remove" targets="#<%= history_id %> > :first-child"></turbo-stream>
+
+<%= turbo_stream.append history_id, 
+      partial: "reports/minimal_report", 
+      locals: { up: report.up, is_new: true } %>
+
+<%= turbo_stream.update "last_report" do %>
+  <%= render partial: "reports/report", locals: { report: report } %>
+<% end %>
+

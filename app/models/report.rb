@@ -4,4 +4,6 @@ class Report < ApplicationRecord
 
   scope :up, -> { where(up: true) }
   scope :down, -> { where(up: false) }
+
+  after_create_commit { broadcast_render_to monitor, template: "reports/create" }
 end
