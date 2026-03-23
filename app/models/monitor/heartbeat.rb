@@ -9,7 +9,7 @@ class Monitor::Heartbeat < Monitor::Base
 
   private
     def should_report?
-      if time_since_last_success
+      if time_since_last_success && reports.last.up
         time_since_last_success > time_considered_active
       else
         # We create reports on interval not every second if last not

@@ -1,0 +1,16 @@
+<h1><%= @monitor.name %> is up</h1>
+
+<p>
+  <% if @monitor.is_a? Monitor::Fetch %>
+    Your website returned that's it up again! <br/>
+    <%= @monitor.url %> return successfull respnse.
+  <% else %>
+    Your website sends us heartbeats again! <br/>
+  <% end %>
+</p>
+
+<p>
+  Hopefully your website will stay up and we don't have to send you more emails. <br/>
+  If your website happends to go down again we will send you email right away.<br/>
+  A detailed report is attached. <br/>
+</p>

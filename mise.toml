@@ -1,2 +1,2 @@
 [env]
-UPTIMER_DATABASE_PASSWORD = "hello"
+_.file = ".env"

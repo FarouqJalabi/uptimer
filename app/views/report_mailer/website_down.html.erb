@@ -1,0 +1,15 @@
+<h1><%= @monitor.name %> is down</h1>
+
+<p>
+  <% if @monitor.is_a? Monitor::Fetch %>
+    We didn't get successfull resposne when fetching your website with url: <%= @monitor.url %>
+  <% else %>
+    We haven't received any heartbeats from your website in over <%= @monitor.time_considered_active %> seconds.
+  <% end %>
+</p>
+
+<p>
+  If this website countinues to be down we won't send you emails so not to spam. <br/>
+  However we will send mail when website is up again <br/>
+  A detailed report is attached. <br/>
+</p>

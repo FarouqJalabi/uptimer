@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   has_many :monitor_fetches, dependent: :destroy, class_name: "Monitor::Fetch"
   has_many :monitor_heartbeats, dependent: :destroy, class_name: "Monitor::Heartbeat"
+
+  after_create_commit :send_welcome_mail
+
+  private
+    def send_welcome_mail
+      UserMailer.with(user: self).welcome.deliver_now
+    end
 end

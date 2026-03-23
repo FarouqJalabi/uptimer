@@ -38,7 +38,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_100800) do
     t.jsonb "info", default: {}, null: false
     t.bigint "monitor_id", null: false
     t.string "monitor_type", null: false
-    t.boolean "up", default: true, null: false
+    t.boolean "up", default: false, null: false
     t.datetime "updated_at", null: false
     t.index ["monitor_type", "monitor_id"], name: "index_reports_on_monitor"
   end

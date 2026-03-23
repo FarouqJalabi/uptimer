@@ -52,6 +52,8 @@ Validation
 
 
 Dag 4 08:00 - 16:00
+https://blog.siami.fr/smooth-ui-animations-on-server-rendered-html
+Email sending on status change ✅
 Fikse bugs + teste + fikse bugs
 Polish
 
