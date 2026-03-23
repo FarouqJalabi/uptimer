@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   after_create_commit :send_welcome_mail
 
+  def reports
+    Report.where(monitor: [ monitor_fetches, monitor_heartbeats ])
+  end
+
   private
     def send_welcome_mail
       UserMailer.with(user: self).welcome.deliver_now

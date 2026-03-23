@@ -1,8 +1,14 @@
 <%# locals: (monitor:, reports:) %>
 
-<section class="flex gap-1 w-[900px]" id=<%= dom_id(monitor, :minimal_history) %> >
-  <% last_90_days(reports).each do |up| %>
-    <%= render "reports/minimal_report", up: up %>
+<%- filler_reports = 90 - reports.size %>
+
+<section class="flex" id=<%= dom_id(monitor, :minimal_history) %> >
+  <% filler_reports.times do %>
+    <%= render "reports/minimal_report", report: nil %>
+  <% end %> 
+
+  <% reports.each do |report| %>
+    <%= render "reports/minimal_report", report: report %>
   <% end %>
 </section>
 

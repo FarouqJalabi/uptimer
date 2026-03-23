@@ -1,0 +1,8 @@
+<section>
+  <h1 class="font-bold text-2xl">Report</h1>
+
+  <%= render "report", report: @report %>
+  <br/>
+  <br/>
+  <%= link_to "Download full info json", report_path(@report, format: :json), download: "report_#{@report.id}.json", class: "btn btn-primary" %>
+</section>

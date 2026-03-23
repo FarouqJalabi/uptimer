@@ -38,12 +38,14 @@
     </div>
 
 
-    <div class="flex w-[50%] m-auto p-5 mt-5 rounded-xl bg-primary text-primary-content">
-      <div class="flex-1">
-        <h2 class="text-xl font-bold">Uptimer</h2>
-      </div>
+    <div class="flex items-center w-[90%] max-w-xl flex-wrap m-auto p-5 mt-5 rounded-xl bg-primary text-primary-content">
+      <%= link_to root_path, class: "flex items-center" do %>
+        <%= image_tag "/icon-white.svg", class: "w-10" %>
 
-      <ul class="flex gap-4">
+        <h2 class="text-xl font-bold">Uptimer</h2>
+      <% end %>
+
+      <ul class="flex gap-4 ml-auto">
         <li>
           <%= link_to "See fetches", monitor_fetches_path, class: "link mt-28" %>
         </li>

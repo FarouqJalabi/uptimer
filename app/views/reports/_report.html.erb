@@ -1,8 +1,11 @@
-<div id="<%= dom_id(report)%>" >
-  <h1 class="font-bold text-xl">Last report</h1>
-  <%= "Up:         #{report.up}" %>
+<%= turbo_frame_tag dom_id(report) do %>
+  
+  <strong>Up:</strong> <%= report.up %>
   <br/>
-  <%= "Info:       #{report.info}" %>
+
+  <strong>Info:</strong> <%= truncate(report.info.to_json, length: 100) %>
+    
   <br/>
-  <%= "Created at: #{report.created_at} "%>
-</div>
+
+  <strong>Created at:</strong> <%= report.created_at %>
+<% end %>

@@ -54,7 +54,12 @@ Validation
 Dag 4 08:00 - 16:00
 https://blog.siami.fr/smooth-ui-animations-on-server-rendered-html
 Email sending on status change ✅
-Fikse bugs + teste + fikse bugs
+Hover for reports ✅ + nye reports letter hover
+Et side for alt
+Secret for å si at nettside er oppe
+Animasjon for nye reports (vansklig å se) 
+
+Fikse bugs + teste + fikse bugs + responsive
 Polish
 
 view transiations? ⁉️
