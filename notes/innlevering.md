@@ -55,18 +55,15 @@ Dag 4 08:00 - 16:00
 https://blog.siami.fr/smooth-ui-animations-on-server-rendered-html
 Email sending on status change ✅
 Hover for reports ✅ + nye reports letter hover
-Et side for alt
+Et side for alt ⁉️
 Secret for å si at nettside er oppe
-Animasjon for nye reports (vansklig å se) 
 
 Fikse bugs + teste + fikse bugs + responsive
 Polish
 
-view transiations? ⁉️
-https://turbo-music-drive.fly.dev/
-What to show in show?, alex said screenshot
-
 Dag 5 08:00 - 16:00
+Fikse bug turbo flere forms samtidig
+Secret for å si at nettside er oppe
 Presntasjon
 
 

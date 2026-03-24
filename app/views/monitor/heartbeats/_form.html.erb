@@ -1,7 +1,14 @@
-<%= form_with(model: monitor_heartbeat, class: "fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4") do |form| %>
+<%= form_with(model: monitor_heartbeat, class: "fieldset bg-primary-content border-base-300 rounded-box border p-6 flex items-center gap-4 w-full") do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name, class: "input "%>
+
   <%= form.label :time_considered_active %>
   <%= form.number_field :time_considered_active, class: "input", min: 0 %>
-  <%= form.submit class: "btn btn-primary mt-4", value: "Create Heartbeat monitor" %>
+
+  <%= form.submit class: "btn btn-primary" %>
+  <% if monitor_heartbeat.persisted? %>
+    <%= link_to "Cancel", monitor_heartbeat %>
+  <% else %>
+    <%= link_to "Cancel", root_path, data: { turbo_frame: "_top", turbo_action: "advance" } %>
+  <% end %>
 <% end %>

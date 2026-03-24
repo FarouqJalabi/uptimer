@@ -3,6 +3,11 @@
  themes: light --default;
 }
 
+.report:nth-child(n+85)  { @apply dropdown-end; }
+
+@media (min-width: 768px) {
+.report:nth-child(n+70)  { @apply dropdown-end; }
+}
 
 .report.is-new {
   .bg-green-500 {

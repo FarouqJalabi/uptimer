@@ -43,7 +43,7 @@ class Monitor::FetchesController < ApplicationController
   # DELETE /monitor/fetches/1
   def destroy
     @monitor_fetch.destroy!
-    redirect_to monitor_fetches_path, notice: "Fetch was successfully destroyed.", status: :see_other
+    redirect_to root_path, notice: "Fetch was successfully destroyed.", status: :see_other
   end
 
   private

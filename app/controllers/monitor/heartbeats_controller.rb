@@ -43,7 +43,7 @@ class Monitor::HeartbeatsController < ApplicationController
   # DELETE /monitor/heartbeats/1
   def destroy
     @monitor_heartbeat.destroy!
-    redirect_to monitor_heartbeats_path, notice: "Heartbeat was successfully destroyed.", status: :see_other
+    redirect_to root_path, notice: "Heartbeat was successfully destroyed.", status: :see_other
   end
 
   private

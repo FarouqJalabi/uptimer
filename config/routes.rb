@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   end
 
   namespace :monitor do
-    resources :heartbeats
-    resources :fetches
+    resources :heartbeats, except: [ :index ]
+    resources :fetches, except: [ :index ]
   end
 
-  resources :reports, only: [:show]
+  resources :monitors, only: [ :index ]
+  resources :reports, only: [ :show ]
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -21,5 +23,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "monitor/fetches#index"
+  root "monitors#index"
 end
