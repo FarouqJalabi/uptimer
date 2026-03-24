@@ -5,6 +5,11 @@
   <%= form.label :time_considered_active %>
   <%= form.number_field :time_considered_active, class: "input", min: 0 %>
 
+  <% if monitor_heartbeat.persisted? %>
+    <button type="button" onclick="navigator.clipboard.writeText('<%= monitor_heartbeat.secret %>')" class="btn">Copy secret</button>
+  <% end %>
+
+
   <%= form.submit class: "btn btn-primary" %>
   <% if monitor_heartbeat.persisted? %>
     <%= link_to "Cancel", monitor_heartbeat %>

@@ -63,7 +63,7 @@ Polish
 
 Dag 5 08:00 - 16:00
 Fikse bug turbo flere forms samtidig
-Secret for å si at nettside er oppe
+Secret for å si at nettside er oppe ✅
 Presntasjon
 
 

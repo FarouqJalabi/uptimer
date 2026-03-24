@@ -1,6 +1,10 @@
 class Monitor::Heartbeat < Monitor::Base
   validates_presence_of :time_considered_active
 
+  validates :secret, presence: true
+  has_secure_token :secret
+  encrypts :secret, deterministic: true
+
   def build_report
     return unless should_report?
 
@@ -25,4 +29,3 @@ class Monitor::Heartbeat < Monitor::Base
       Time.current - last_success_report.created_at
     end
 end
-
