@@ -25,7 +25,7 @@ class Monitor::FetchesController < ApplicationController
     @monitor_fetch = current_user.monitor_fetches.new(monitor_fetch_params)
 
     if @monitor_fetch.save
-      redirect_to @monitor_fetch, notice: "Fetch was successfully created."
+      redirect_to monitors_path, notice: "Fetch was successfully created."
     else
       render :new, status: :unprocessable_content
     end
@@ -43,7 +43,7 @@ class Monitor::FetchesController < ApplicationController
   # DELETE /monitor/fetches/1
   def destroy
     @monitor_fetch.destroy!
-    redirect_to root_path, notice: "Fetch was successfully destroyed.", status: :see_other
+    redirect_to monitors_path, notice: "Fetch was successfully destroyed.", status: :see_other
   end
 
   private

@@ -19,19 +19,13 @@
   }
 }
 
-.report.is-new.bg-green-500 {
-  --glow-color: var(--color-green-500);
-  animation: 1s ease-out 0s 1 glow;
+.report.is-new {
+  animation: 0.5s ease-out 0s 1 grow;
 }
 
-.report.is-new.bg-red-500 {
-  --glow-color: var(--color-red-500);
-  animation: 1s ease-out 0s 1 glow;
+@keyframes grow {
+  0% { width: 0px; margin: 0;}
+  0% { border-left: none;}
 }
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 0px var(--glow-color); }
-  50%  { box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color); }
-  20%, 80% { box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color); }
-}
 

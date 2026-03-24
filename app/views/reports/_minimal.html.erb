@@ -1,6 +1,6 @@
 <%# locals: (monitor:, reports:) %>
 
-<%- reports = reports.limit(90) %>
+<%- reports = reports.last(90) %>
 <%- reports = Array.new(90-reports.size, nil) + reports  %> <!--  Fill array uptill 90 -->
 
 <section class="flex max-w-[1080px] min-w-0 flex-1 justify-end relative h-8 overflow-x-clip" id="<%= dom_id(monitor, :minimal_history) %>">

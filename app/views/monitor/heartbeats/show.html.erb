@@ -11,7 +11,7 @@
     
     <%= render "monitors/monitor", monitor: @monitor_heartbeat %>
 
-    <%= link_to "Back to monitors", root_path, class: "btn" %>
+    <%= link_to "Back to monitors", monitors_path, class: "btn" %>
     <%= button_to "Destroy", @monitor_heartbeat, method: :delete, class: "btn btn-error", data: { turbo_confirm: "Are you sure?" } %>
 
     <div id="last_report">

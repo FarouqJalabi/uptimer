@@ -25,7 +25,7 @@ class Monitor::HeartbeatsController < ApplicationController
     @monitor_heartbeat = current_user.monitor_heartbeats.new(monitor_heartbeat_params)
 
     if @monitor_heartbeat.save
-      redirect_to @monitor_heartbeat, notice: "Heartbeat was successfully created."
+      redirect_to monitors_path, notice: "Heartbeat was successfully created."
     else
       render :new, status: :unprocessable_content
     end
@@ -43,7 +43,7 @@ class Monitor::HeartbeatsController < ApplicationController
   # DELETE /monitor/heartbeats/1
   def destroy
     @monitor_heartbeat.destroy!
-    redirect_to root_path, notice: "Heartbeat was successfully destroyed.", status: :see_other
+    redirect_to monitors_path, notice: "Heartbeat was successfully destroyed.", status: :see_other
   end
 
   private
