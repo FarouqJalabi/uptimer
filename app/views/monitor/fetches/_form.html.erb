@@ -8,7 +8,7 @@
   <%= form.label :poll_interval %>
   <%= form.number_field :poll_interval, class: "input", min: 0 %>
 
-  <%= form.submit class: "btn btn-primary", value: "Create Fetch monitor" %>
+  <%= form.submit class: "btn btn-primary" %>
   <% if monitor_fetch.persisted? %>
     <%= link_to "Cancel", monitor_fetch %>
   <% else %>
