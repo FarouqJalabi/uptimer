@@ -1,12 +1,18 @@
-<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-6 flex sm:flex-row flex-col items-center gap-4 w-full") do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name, class: "input "%>
+<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 h-[90px] flex sm:flex-row flex-col items-center gap-4 w-full", data: { turbo_frame: monitor_fetch.persisted? ? "" : "_top" }) do |form| %>
+  <div class="not-has-[p]:mb-4">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "input "%>
+  </div>
 
-  <%= form.label :url %>
-  <%= form.url_field :url, class: "input" %>
+  <div  class="not-has-[p]:mb-4">
+    <%= form.label :url %>
+    <%= form.url_field :url, class: "input" %>
+  </div>
 
-  <%= form.label :poll_interval %>
-  <%= form.number_field :poll_interval, class: "input", min: 0 %>
+  <div class="not-has-[p]:mb-4">
+    <%= form.label :poll_interval %>
+    <%= form.number_field :poll_interval, class: "input", min: 0 %>
+  </div>
 
   <%= form.submit class: "btn btn-primary" %>
   <% if monitor_fetch.persisted? %>

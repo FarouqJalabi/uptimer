@@ -1,9 +1,13 @@
-<%= form_with(model: monitor_heartbeat, class: "fieldset bg-primary-content border-base-300 rounded-box border p-6 flex items-center gap-4 w-full") do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name, class: "input "%>
+<%= form_with(model: monitor_heartbeat, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 h-[90px] flex sm:flex-row flex-col items-center gap-4 w-full", data: { turbo_frame: monitor_heartbeat.persisted? ? "" : "_top" }) do |form| %>
+  <div class="not-has-[p]:mb-4">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "input "%>
+  </div>
 
-  <%= form.label :time_considered_active %>
-  <%= form.number_field :time_considered_active, class: "input", min: 0 %>
+  <div class="not-has-[p]:mb-4">
+    <%= form.label :time_considered_active %>
+    <%= form.number_field :time_considered_active, class: "input", min: 0 %>
+  </div>
 
   <% if monitor_heartbeat.persisted? %>
     <button type="button" onclick="navigator.clipboard.writeText('<%= monitor_heartbeat.secret %>')" class="btn">Copy secret</button>

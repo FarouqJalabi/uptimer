@@ -22,7 +22,10 @@
     <% else %>
       <p class="text-center my-10">No heartbeats found.</p>
     <% end %>
-    <%= link_to "New heartbeat heartbeat", new_monitor_heartbeat_path, class: "btn btn-primary" %>
+
+    <%= turbo_frame_tag "new_monitor_heartbeat" do %>
+      <%= link_to "New heartbeat monitor", new_monitor_heartbeat_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <div class="flex justify-between items-center mt-10">
@@ -38,6 +41,9 @@
     <% else %>
       <p class="text-center my-10">No fetches found.</p>
     <% end %>
-    <%= link_to "New fetch monitor", new_monitor_fetch_path, class: "btn btn-primary" %>
+
+    <%= turbo_frame_tag "new_monitor_fetch" do %>
+      <%= link_to "New fetch monitor", new_monitor_fetch_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

@@ -27,7 +27,11 @@ class Monitor::FetchesController < ApplicationController
     if @monitor_fetch.save
       redirect_to monitors_path, notice: "Fetch was successfully created."
     else
-      render :new, status: :unprocessable_content
+      render turbo_stream: turbo_stream.replace(
+        "new_monitor_fetch",
+        partial: "monitor/fetches/form",
+        locals: { monitor_fetch: @monitor_fetch }
+      )
     end
   end
 

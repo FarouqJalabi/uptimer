@@ -27,7 +27,11 @@ class Monitor::HeartbeatsController < ApplicationController
     if @monitor_heartbeat.save
       redirect_to monitors_path, notice: "Heartbeat was successfully created."
     else
-      render :new, status: :unprocessable_content
+      render turbo_stream: turbo_stream.replace(
+        "new_monitor_heartbeat",
+        partial: "monitor/heartbeats/form",
+        locals: { monitor_heartbeat: @monitor_heartbeat }
+      )
     end
   end
 
