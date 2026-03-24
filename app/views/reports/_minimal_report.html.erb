@@ -1,14 +1,18 @@
 <%# locals: (report: nil, is_new: false) %>
 <%- path = report ? report_path(report.id) : "#" %>
 
-<%= link_to path, class: class_names("report shrink-0 w-8 md:w-3 h-8 hover:h-12 dropdown dropdown-hover shirnk-0 border-2 border-white transition-all", report_color(report), "is-new": is_new), data: { turbo_frame: "_top", turbo_action: "advance" } do %>
-  <% if report %>
+<% if report %>
+  <%= link_to report_path(report, format: :json), download: "report_#{report.id}.json", onclick: "this.blur()", onauxclick: "this.blur()", class: class_names("report shrink-0 w-8 md:w-3 h-8 hover:h-12 dropdown dropdown-hover border-2 border-white transition-all", report_color(report), "is-new": is_new) do %>
     <%= turbo_frame_tag dom_id(report), src: url_for(report), loading: :lazy, class: "dropdown-content bg-white top-10 rounded-box z-1 w-52 p-2 shadow-sm" do %>
       <span class="loading loading-spinner loading-md"></span>
     <% end %>
-  <% else %>
-    <div class="dropdown-content menu bg-primary-contennt top-10 rounded-box z-1 w-52 p-2 shadow-sm bg-white">
+  <% end %>
+
+<% else %>
+  <%= link_to "#", class: class_names("report shrink-0 w-8 md:w-3 h-8 hover:h-12 dropdown dropdown-hover border-2 border-white transition-all", report_color(report), "is-new": is_new) do %>
+    <div class="dropdown-content menu bg-primary-content top-10 rounded-box z-1 w-52 p-2 shadow-sm bg-white">
       <p>No data :\</p>
     </div>
   <% end %>
+
 <% end %>

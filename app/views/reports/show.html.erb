@@ -4,5 +4,5 @@
   <%= render "report", report: @report %>
   <br/>
   <br/>
-  <%= link_to "Download full info json", report_path(@report, format: :json), download: "report_#{@report.id}.json", class: "btn btn-primary" %>
+  <%= link_to "Download report as json", report_path(@report, format: :json), download: "report_#{@report.id}.json", class: "btn btn-primary" %>
 </section>

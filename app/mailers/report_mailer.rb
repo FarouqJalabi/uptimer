@@ -6,7 +6,7 @@ class ReportMailer < ApplicationMailer
 
     attachments["report_info.json"] = {
       mime_type: "application/json",
-      content: @report.info.to_json
+      content: @report.to_json
     }
 
     mail(to: @user.email, subject: "Website is back up :)")
@@ -19,7 +19,7 @@ class ReportMailer < ApplicationMailer
 
     attachments["report_info.json"] = {
       mime_type: "application/json",
-      content: @report.info.to_json
+      content: @report.to_json
     }
 
     mail(to: @user.email, subject: "Website down :(")

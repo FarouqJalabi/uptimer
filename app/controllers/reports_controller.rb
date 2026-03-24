@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @report.info }
+      format.json { render json: @report.to_json }
     end
   end
 

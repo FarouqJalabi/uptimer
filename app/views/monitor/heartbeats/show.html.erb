@@ -2,13 +2,8 @@
 
 <div class="flex flex-col gap-4">
   <div class="md:w-2/3 w-full">
-    <h1 class="font-bold text-4xl">Showing heartbeat monitor</h1>
+    <h1 class="font-bold text-4xl">Showing heartbeat monitor</h1> 
 
-    <div class="mockup-code w-full">
-      <pre data-prefix="$"><code>curl -X POST https://uptimer.rubynor.com/api/monitor_heartbeat  -H "Content-Type: application/json" -d "{\"id\": <%= @monitor_heartbeat.id %>, \"cpu\": \"67%\", \"ram\": \"67%\"}"</code></pre>
-    </div>
-
-    
     <%= render "monitors/monitor", monitor: @monitor_heartbeat %>
 
     <%= link_to "Back to monitors", monitors_path, class: "btn" %>
