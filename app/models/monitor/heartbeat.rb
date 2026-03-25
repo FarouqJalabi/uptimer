@@ -28,6 +28,6 @@ class Monitor::Heartbeat < Monitor::Base
     def time_since_success
       last_success_report = reports.up.last
 
-      Time.current - (last_success_report.created_at || created_at)
+      Time.current - (last_success_report&.created_at || created_at)
     end
 end

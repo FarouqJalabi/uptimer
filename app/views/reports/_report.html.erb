@@ -3,6 +3,11 @@
   <strong>Up:</strong> <%= report.up %>
   <br/>
 
+  <% if report.status_code %>
+    <strong>Status code:</strong> <%= report.status_code %> 
+    <br/>
+  <% end %>
+
   <strong>Info:</strong> <%= truncate(report.info.to_json, length: 20) %>
     
   <br/>

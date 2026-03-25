@@ -5,4 +5,5 @@
   <br/>
   <br/>
   <%= link_to "Download report as json", report_path(@report, format: :json), download: "report_#{@report.id}.json", class: "btn btn-primary" %>
+  <%= link_to "back", monitors_path, class: "btn", data: {turbo_action: "advance", turbo_frame: "_top"} %>
 </section>
