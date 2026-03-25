@@ -6,7 +6,3 @@
       partial: "reports/minimal_report", 
       locals: { report: report, is_new: true } %>
 
-<%= turbo_stream.update "last_report" do %>
-  <%= render partial: "reports/report", locals: { report: report } %>
-<% end %>
-

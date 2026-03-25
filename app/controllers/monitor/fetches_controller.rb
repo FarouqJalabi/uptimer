@@ -9,15 +9,18 @@ class Monitor::FetchesController < ApplicationController
 
   # GET /monitor/fetches/1
   def show
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # GET /monitor/fetches/new
   def new
     @monitor_fetch = Monitor::Fetch.new
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # GET /monitor/fetches/1/edit
   def edit
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # POST /monitor/fetches

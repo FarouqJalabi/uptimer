@@ -9,10 +9,4 @@
     <%= link_to "Back to monitors", monitors_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
     <%= button_to "Destroy", @monitor_fetch, method: :delete, class: "btn btn-error", data: { turbo_confirm: "Are you sure?" } %>
   </div>
-
-  <div id="last_report">
-    <% if @monitor_fetch.reports.any? %>
-      <%= render "reports/report", report: @monitor_fetch.reports.last %>
-    <% end %>
-  </div>
 </div>

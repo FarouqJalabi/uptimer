@@ -8,12 +8,5 @@
 
     <%= link_to "Back to monitors", monitors_path, class: "btn" %>
     <%= button_to "Destroy", @monitor_heartbeat, method: :delete, class: "btn btn-error", data: { turbo_confirm: "Are you sure?" } %>
-
-    <div id="last_report">
-      <% if @monitor_heartbeat.reports.any? %>
-        <%= render "reports/report", report: @monitor_heartbeat.reports.last %>
-      <% end %>
-    </div>
-
   </div>
 </div>

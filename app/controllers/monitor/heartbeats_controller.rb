@@ -9,15 +9,18 @@ class Monitor::HeartbeatsController < ApplicationController
 
   # GET /monitor/heartbeats/1
   def show
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # GET /monitor/heartbeats/new
   def new
     @monitor_heartbeat = Monitor::Heartbeat.new
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # GET /monitor/heartbeats/1/edit
   def edit
+    redirect_to monitors_path unless turbo_frame_request?
   end
 
   # POST /monitor/heartbeats
