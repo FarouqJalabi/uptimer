@@ -25,13 +25,14 @@ class Monitor::HeartbeatsController < ApplicationController
     @monitor_heartbeat = current_user.monitor_heartbeats.new(monitor_heartbeat_params)
 
     if @monitor_heartbeat.save
-      redirect_to monitors_path, notice: "Heartbeat was successfully created."
+      flash.now[:notice] = "Fetch was successfully created."
+
+      respond_to do |format|
+        format.html { redirect_to monitors_path }
+        format.turbo_stream
+      end
     else
-      render turbo_stream: turbo_stream.replace(
-        "new_monitor_heartbeat",
-        partial: "monitor/heartbeats/form",
-        locals: { monitor_heartbeat: @monitor_heartbeat }
-      )
+      render :new, status: :unprocessable_content
     end
   end
 

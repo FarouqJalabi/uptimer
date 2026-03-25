@@ -1,4 +1,4 @@
-<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 sm:h-[90px] inline-flex sm:flex-row flex-col items-center gap-4", data: { turbo_frame: monitor_fetch.persisted? ? "" : "_top" }) do |form| %>
+<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 sm:h-[90px] inline-flex sm:flex-row flex-col items-center gap-4") do |form| %>
   <div class="not-has-[p]:mb-4">
     <%= form.label :name %>
     <%= form.text_field :name, class: "input "%>
@@ -15,10 +15,6 @@
   </div>
 
   <%= form.submit class: "btn btn-primary" %>
-  <% if monitor_fetch.persisted? %>
-    <%= link_to "Cancel", monitor_fetch %>
-  <% else %>
-    <%= link_to "Cancel", monitors_path, data: { turbo_frame: "_top", turbo_action: "advance" } %>
-  <% end %>
+  <%= link_to "Cancel", monitors_path %>
 <% end %>
 

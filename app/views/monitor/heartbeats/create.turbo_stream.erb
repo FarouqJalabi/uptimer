@@ -1,0 +1,8 @@
+<%= turbo_stream.replace "flash", partial: "layouts/flash" %>
+
+<%= turbo_stream.replace "new_monitor_heartbeat" do %>
+  <%= render "monitors/monitor", monitor: @monitor_heartbeat %>
+  <%= turbo_frame_tag "new_monitor_heartbeat" do %>
+    <%= link_to "New heartbeat monitor", new_monitor_heartbeat_path, class: "btn btn-primary" %>
+  <% end %>
+<% end %>

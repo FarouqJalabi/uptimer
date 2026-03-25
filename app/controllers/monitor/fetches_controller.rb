@@ -25,13 +25,14 @@ class Monitor::FetchesController < ApplicationController
     @monitor_fetch = current_user.monitor_fetches.new(monitor_fetch_params)
 
     if @monitor_fetch.save
-      redirect_to monitors_path, notice: "Fetch was successfully created."
+      flash.now[:notice] = "Fetch was successfully created."
+
+      respond_to do |format|
+        format.html { redirect_to monitors_path }
+        format.turbo_stream
+      end
     else
-      render turbo_stream: turbo_stream.replace(
-        "new_monitor_fetch",
-        partial: "monitor/fetches/form",
-        locals: { monitor_fetch: @monitor_fetch }
-      )
+      render :new, status: :unprocessable_content
     end
   end
 

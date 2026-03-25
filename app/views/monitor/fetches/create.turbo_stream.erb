@@ -1,0 +1,8 @@
+<%= turbo_stream.replace "flash", partial: "layouts/flash" %>
+
+<%= turbo_stream.replace "new_monitor_fetch" do %>
+  <%= render "monitors/monitor", monitor: @monitor_fetch %>
+  <%= turbo_frame_tag "new_monitor_fetch" do %>
+    <%= link_to "New fetch monitor", new_monitor_fetch_path, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
