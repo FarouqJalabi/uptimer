@@ -7,7 +7,9 @@
    
   <%= render "shared/collapse", title: "What is heartbeat monitors?" do %>
     <p>
-      We wait for website to send us post request to /api/monitor_heartbeat, if "time_considered_active" is passed we update false.
+      We wait for website to send us post request. <br/>
+      If "time_considered_active" is passed without any updates we update false. <br/>
+      PS you have to pass secret found inside edit 
     </p>
     <div class="mockup-code">
       <pre data-prefix="$"><code>curl -X POST https://uptimer.rubynor.com/api/monitor_heartbeat \
@@ -31,7 +33,9 @@
   </div>
   <%= render "shared/collapse", title: "What is fetch monitors?" do %>
     <p>
-      We activly send "get" request for website and store any errors
+      We activly send "get" request for website and store any errors. <br/>
+      If website return json we will store that too. <br/>
+      We will follow max 2 redirects. 
     </p>
   <% end %>
 
