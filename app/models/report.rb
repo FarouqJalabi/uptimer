@@ -10,6 +10,8 @@ class Report < ApplicationRecord
 
   after_create_commit :send_mail
 
+  def down? = !up
+
   private
     def send_mail
       return unless monitor_status_changed? && user.email_notification?

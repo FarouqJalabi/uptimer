@@ -1,17 +1,29 @@
+require "faraday/follow_redirects"
+
 class Monitor::Fetch < Monitor::Base
   validates_presence_of :poll_interval
   validates_presence_of :url
-
-  # TODO validate url format
-  # TODO normlize url
+  normalizes :url, with: ->(url) { url.starts_with?("http://", "https://") ? url : url.prepend("https://") }
 
   def build_report
     return unless should_report?
-    response = Faraday.get(url)
-    # NOTE 301 isn't successfull
-    reports.create! up: response.success?, info: { status: response.status } # Maybe include more info if fail?
-  rescue Faraday::Error, Faraday::ConnectionFailed => e
-    reports.create!(up: false, info: { error: e })
+
+    connection = Faraday.new(url: url) do |f|
+      f.response :follow_redirects
+      f.response :json
+      f.headers["Accept"] = "application/json"
+    end
+    response = connection.get
+
+    info = { status_code: response.status }
+    info.merge!(response.body) if response.body.is_a? Hash
+
+    reports.create! up: response.success?, info: info
+  rescue Faraday::Error => e
+    reports.create!(up: false, info: { error_class: e.class, error_message: e.message })
+  rescue => e # Does it ever come here? can't make it come here...
+    reports.create!(up: false, info: {  error_class: e.class, error_message: e.message, message: "Something wrong with uptimer :(" })
+    raise e
   end
 
   private
