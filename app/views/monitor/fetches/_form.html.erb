@@ -1,4 +1,4 @@
-<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 h-[90px] flex sm:flex-row flex-col items-center gap-4 w-full", data: { turbo_frame: monitor_fetch.persisted? ? "" : "_top" }) do |form| %>
+<%= form_with(model: monitor_fetch, class: "fieldset bg-primary-content border-base-300 rounded-box border p-4 sm:h-[90px] inline-flex sm:flex-row flex-col items-center gap-4", data: { turbo_frame: monitor_fetch.persisted? ? "" : "_top" }) do |form| %>
   <div class="not-has-[p]:mb-4">
     <%= form.label :name %>
     <%= form.text_field :name, class: "input "%>

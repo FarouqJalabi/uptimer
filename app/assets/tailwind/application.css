@@ -10,16 +10,6 @@
 }
 
 .report.is-new {
-  .bg-green-500 {
-    width: !important 100px;
-  }
-
-  .bg-red-500 {
-    width: 100px;
-  }
-}
-
-.report.is-new {
   animation: 0.5s ease-out 0s 1 grow;
 }
 
@@ -29,3 +19,11 @@
 }
 
 
+.alert {
+  animation: hide 1s ease-out 5s forwards;
+}
+
+@keyframes hide {
+  0% { opacity: 1; }
+  100% { opacity: 0;}
+}
