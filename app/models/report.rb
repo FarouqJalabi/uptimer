@@ -12,7 +12,7 @@ class Report < ApplicationRecord
 
   private
     def send_mail
-      return unless monitor_status_changed?
+      return unless monitor_status_changed? && user.email_notification?
 
       if up
         ReportMailer.with(report: self).website_up.deliver_now

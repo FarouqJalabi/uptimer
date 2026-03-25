@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :monitors, only: [ :index ]
   resources :reports, only: [ :show ]
 
+  resource :user_settings, only: [] do
+    post :toggle_alerts
+  end
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
