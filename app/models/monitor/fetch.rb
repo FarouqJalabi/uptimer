@@ -1,7 +1,7 @@
 require "faraday/follow_redirects"
 
 class Monitor::Fetch < Monitor::Base
-  validates_presence_of :poll_interval
+  validates :poll_interval, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1_000_000 }
   validates_presence_of :url
   normalizes :url, with: ->(url) { url.starts_with?("http://", "https://") ? url : url.prepend("https://") }
 
@@ -25,6 +25,7 @@ class Monitor::Fetch < Monitor::Base
   rescue => e # Does it ever come here? can't make it come here...
     reports.create!(up: false, info: {  error_class: e.class, error_message: e.message, message: "Something wrong with uptimer :(" })
     Rails.logger.error "Unexpected error when fetching site"
+    # Log sentry
     # raise e # Don't reraise to allow other monitors to countinue
   end
 
