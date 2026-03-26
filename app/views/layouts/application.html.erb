@@ -26,13 +26,13 @@
   <body>
     <%= render "layouts/flash" %>
 
-    <div class="flex mx-2 sm:mx-5 text-primary-content gap-4">
+    <% if current_user %>
+      <div class="flex mx-2 sm:mx-5 text-primary-content gap-4 mb-7">
       <%= link_to root_path, class: "flex items-center p-4 py-2 bg-primary rounded-b-lg  h-[60px]" do %>
         <%= image_tag "/icon-white.svg", class: "w-10" %>
         <h1 class="text-xl font-bold">Uptimer</h1>
       <% end %>
 
-      <% if current_user %>
         <div class="font-bold relative mb-[-90px] top-[-90px] has-checked:top-0 transition-all items-start flex flex-col">
           <div class="font-bold bg-primary rounded-br-lg flex flex-col gap-2">
             <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "p-2" %>
@@ -47,11 +47,11 @@
           <input type="checkbox" id="account-toggle" class="hidden" autocomplete="off"/>
           <label for="account-toggle" class="font-bold bg-primary p-2 rounded-b-lg">Account</label>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
-    <main class="mx-auto mt-7 px-5 w-full">
-      <%= yield %>
+    <main class="mx-auto px-5 w-full">
+      <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
   </body>
 </html>
