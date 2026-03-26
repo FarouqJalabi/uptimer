@@ -24,7 +24,8 @@ class Monitor::Fetch < Monitor::Base
     reports.create!(up: false, info: { error_class: e.class, error_message: e.message })
   rescue => e # Does it ever come here? can't make it come here...
     reports.create!(up: false, info: {  error_class: e.class, error_message: e.message, message: "Something wrong with uptimer :(" })
-    raise e
+    Rails.logger.error "Unexpected error when fetching site"
+    # raise e # Don't reraise to allow other monitors to countinue
   end
 
   private
