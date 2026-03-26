@@ -3,7 +3,7 @@
 Live at: https://uptimer.rubynor.com/
 
 
-## Oppgave tekst
+## Task description
 
 ### **Beskrivelse**
 
