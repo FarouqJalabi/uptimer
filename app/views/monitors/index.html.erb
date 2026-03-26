@@ -1,15 +1,35 @@
 <% content_for :title, "Monitors" %>
 
 <div class="w-full containter">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Heartbeat monitors</h1>
-  </div>
+  <h2 class="font-bold text-4xl">Heartbeat monitors</h2>
    
+  <div id="monitor_heartbeats" class="flex flex-col gap-2">
+    <%= render partial: "monitors/monitor", collection: @monitor_heartbeats, as: :monitor %>
+
+    <%= turbo_frame_tag "new_monitor_heartbeat" do %>
+      <%= link_to "New heartbeat monitor", new_monitor_heartbeat_path, class: "btn btn-primary my-[25px]" %>
+    <% end %>
+  </div>
+
+  <h2 class="font-bold text-4xl">Fetch monitors</h2>
+
+  <div id="monitor_fetches" class="flex flex-col gap-2">
+    <%= render partial: "monitors/monitor", collection: @monitor_fetches, as: :monitor %>
+
+    <%= turbo_frame_tag "new_monitor_fetch" do %>
+      <%= link_to "New fetch monitor", new_monitor_fetch_path, class: "btn btn-primary my-[25px]" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<section class="flex flex-wrap gap-4">
   <%= render "shared/collapse", title: "What is heartbeat monitors?" do %>
     <p>
       We wait for website to send us post request. <br/>
       If "time_considered_active" is passed without any updates we update false. <br/>
-      PS you have to pass secret found inside edit 
+      PS you have to pass secret found inside edit <br/>
     </p>
     <div class="mockup-code">
       <pre data-prefix="$"><code>curl -X POST https://uptimer.rubynor.com/api/monitor_heartbeat \
@@ -20,17 +40,6 @@
     </div>
   <% end %>
 
-  <div id="monitor_heartbeats" class="flex flex-col gap-2">
-    <%= render partial: "monitors/monitor", collection: @monitor_heartbeats, as: :monitor %>
-
-    <%= turbo_frame_tag "new_monitor_heartbeat" do %>
-      <%= link_to "New heartbeat monitor", new_monitor_heartbeat_path, class: "btn btn-primary my-[25px]" %>
-    <% end %>
-  </div>
-
-  <div class="flex justify-between items-center mt-10">
-    <h1 class="font-bold text-4xl">Fetch monitors</h1>
-  </div>
   <%= render "shared/collapse", title: "What is fetch monitors?" do %>
     <p>
       We activly send "get" request for website and store any errors. <br/>
@@ -38,12 +47,4 @@
       We will follow max 2 redirects. 
     </p>
   <% end %>
-
-  <div id="monitor_fetches" class="flex flex-col gap-2">
-    <%= render partial: "monitors/monitor", collection: @monitor_fetches, as: :monitor %>
-
-    <%= turbo_frame_tag "new_monitor_fetch" do %>
-      <%= link_to "New fetch monitor", new_monitor_fetch_path, class: "btn btn-primary my-[25px]" %>
-    <% end %>
-  </div>
-</div>
+</section>
