@@ -11,6 +11,7 @@ class Monitor::Fetch < Monitor::Base
     connection = Faraday.new(url: url) do |f|
       f.response :follow_redirects
       f.response :json
+      f.options.timeout = 3 # If site runs every second, big problemo
       f.headers["Accept"] = "application/json"
     end
     response = connection.get
